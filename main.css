@@ -19,6 +19,13 @@
   --radius: 0.5rem solid var(--secondary-dark-grey-blue);
   --ff-primary: "Montserrat", sans-serif;
   --ff-secondary: "Fraunces", serif;
+  --light-shadow: 0 5px 15px #0000001a;
+  --dark-shadow: 0 5px 15px #00000066;
+  --spacing: 0.1rem;
+  --radius: 0.5rem;
+  --mobile-max-width: 375px;
+  --desktop-max-width: 1440px;
+  --transition: all 0.3s ease;
 }
 
 html {
@@ -52,6 +59,7 @@ h1 {
 }
 h2 {
   font-size: 2rem;
+  font-family: var(--ff-secondary);
 }
 h3 {
   font-size: 1.25rem;
@@ -62,6 +70,11 @@ h4 {
 p {
   margin-bottom: 1.25rem;
   color: var(--clr-grey-5);
+}
+
+img {
+  display: block;
+  width: 100%;
 }
 @media screen and (min-width: 800px) {
   h1 {
@@ -88,3 +101,37 @@ p {
 }
 
 /* end Global styles */
+
+.wrapper {
+  min-height: 60vh;
+  width: 100%;
+  max-width: 60vw;
+  box-shadow: var(--light-shadow);
+  display: flex;
+  border-radius: var(--radius);
+  background-color: var(--white);
+}
+
+.wrapper:hover {
+  box-shadow: var(--dark-shadow);
+  transition: var(--transition);
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 500px;
+}
+
+.left_card {
+  background: url("./images/image-product-desktop.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
