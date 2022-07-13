@@ -21,11 +21,11 @@
   --ff-secondary: "Fraunces", serif;
   --light-shadow: 0 5px 15px #0000001a;
   --dark-shadow: 0 5px 15px #00000066;
-  --spacing: 0.1rem;
+  --spacing: 0.5rem;
   --radius: 0.5rem;
   --mobile-max-width: 375px;
   --desktop-max-width: 1440px;
-  --transition: all 0.3s ease;
+  --transition: all 0.3s linear;
 }
 
 html {
@@ -49,7 +49,6 @@ h1,
 h2,
 h3,
 h4 {
-  letter-spacing: var(--spacing);
   text-transform: capitalize;
   line-height: 1.25;
   margin-bottom: 0.75rem;
@@ -103,13 +102,14 @@ img {
 /* end Global styles */
 
 .wrapper {
-  min-height: 60vh;
+  min-height: 560px;
   width: 100%;
-  max-width: 60vw;
+  max-width: 900px;
   box-shadow: var(--light-shadow);
   display: flex;
   border-radius: var(--radius);
   background-color: var(--white);
+  transition: all 0.3s linear;
 }
 
 .wrapper:hover {
@@ -124,14 +124,178 @@ main {
   align-items: center;
 }
 
-.card {
-  width: 100%;
-  max-width: 500px;
-}
-
 .left_card {
   background: url("./images/image-product-desktop.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-bottom-left-radius: var(--radius);
+  border-top-left-radius: var(--radius);
+  width: 50%;
+}
+
+.right_card {
+  padding: 2.4rem;
+  border-bottom-right-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  width: 50%;
+}
+
+.right_card-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 90%;
+  width: 100%;
+}
+
+.right_card .subtitle {
+  color: var(--secondary-dark-grey-blue);
+  letter-spacing: var(--spacing);
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 1.6rem;
+}
+.right_card .card_title {
+  color: var(--secondary-dark-blue);
+  line-height: 1;
+  font-size: 5.7rem;
+}
+.right_card .card_info {
+  color: var(--secondary-dark-grey-blue);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  width: 370px;
+}
+.right_card .card_price-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.card_price-wrapper .discount-price {
+  color: var(--primary-dark);
+  font-size: 4rem;
+}
+.card_price-wrapper .normal-price {
+  color: var(--secondary-dark-grey-blue);
+  text-decoration: line-through;
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-left: 3.2rem;
+}
+.right_card .card-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  background-color: var(--primary-dark);
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: var(--light-shadow);
+  cursor: pointer;
+  color: white;
+}
+
+.right_card .card-btn:hover {
+  box-shadow: var(--dark-shadow);
+  transition: var(--transition);
+}
+
+.right_card .card-btn img {
+  width: 1.8rem;
+  margin: 0rem 0.8rem;
+}
+.right_card .card-btn .card-btn_text {
+  font-size: 1.6rem;
+}
+
+@media only screen and (max-width: 1029px) {
+  .wrapper {
+    max-width: 700px;
+  }
+  .right_card .card_info {
+    width: 300px;
+  }
+
+  .right_card .card_title {
+    font-size: 4rem;
+  }
+}
+
+/* medium desktop view */
+
+@media only screen and (max-width: 769px) {
+  .wrapper {
+    max-width: 375px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s linear;
+  }
+
+  .left_card {
+    width: 100%;
+    min-height: 230px;
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+  }
+
+  .right_card {
+    width: 100%;
+    height: 380px;
+  }
+
+  .right_card .card_info {
+    width: 300px;
+    font-size: 1.15rem;
+    letter-spacing: 0.1rem;
+    height: 6.5rem;
+    line-height: 2;
+    margin: 2rem 0;
+  }
+
+  .right_card .card_title {
+    font-size: 3.2rem;
+  }
+
+  .right_card .card-btn {
+    margin-top: 2rem;
+  }
+
+  .card_price-wrapper .discount-price {
+    font-size: 3.2rem;
+  }
+  .card_price-wrapper .normal-price {
+    font-size: 1.6rem;
+    margin-left: 3.2rem;
+  }
+}
+
+/* small desktop view */
+
+@media only screen and (max-width: 375px) {
+  .wrapper {
+    max-width: 350px;
+    transition: all 0.3s linear;
+  }
+}
+
+/* galaxy fold viewport */
+@media only screen and (max-width: 280px) {
+  .right_card .card_title {
+    font-size: 2.4rem;
+    margin-top: 1rem;
+  }
+
+  .right_card .card_info {
+    width: 260px;
+    font-size: 1.15rem;
+    letter-spacing: 0.1rem;
+    height: 7.2rem;
+    line-height: 2;
+    margin: 1rem 0;
+  }
+
+  .card_price-wrapper {
+    margin-top: 4rem;
+  }
 }
